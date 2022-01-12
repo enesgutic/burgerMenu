@@ -1,0 +1,137 @@
+@import './mixins';
+@import './variables';
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-size: $bodyFontSize;
+  font-family: sans-serif;
+}
+
+header{
+  @include flexHeader;
+  width: 100%;
+  padding: $headerPadding;
+  background-color: $headerBgColor;
+  height: 70px;
+  
+  h1{
+    font-size: $headingFontSize;
+    margin: 0;
+  }
+  
+  .burgerMenu{
+    padding: 0.5rem;
+    cursor: pointer;
+    @include flexCenter;
+    flex-direction: column;
+    
+    .line{
+      height: 2px;
+      width: 30px;
+      margin: .2rem 0;
+      background: #252525;
+    }  // END .line
+  } // END .burgerMenu
+} // END .header
+
+
+
+.mobileMenu{
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: $backgroundColor;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  h2{
+    font-size: $headingFontSize;
+    margin: 0;
+  }
+  
+  .wrap{
+    @include flexHeader;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: $headerPadding;
+    height: 70px;
+    
+    .exitMenu{
+      @include flexCenter;
+      padding: 5px 0;
+     
+      .wrapLine{
+        width: 38px;
+        height: 38px;
+        position: relative;
+        cursor: pointer;
+        margin-right: 5px;
+        
+        .exitLine{
+          height: 2px;
+          width: 30px;
+          margin: 0;
+          background: #252525;
+
+          &:first-child{
+            position: absolute;
+            top: 19px;
+            left: -15px;
+            transform: translate(20px) rotate(45deg) translate(0px); 
+          }
+          &:last-child{
+            transform: translate(-10px) rotate(-45deg) translate(0px);
+            position: absolute;
+            right: -6px;
+            top: 19px;
+          }
+
+
+        } // END .exitLine
+      } // END .wrapLine
+    } // END .exitMenu
+  } // END .wrap
+    
+ .openMenu{
+    @include flexCenter;
+    
+    ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+      
+      li{
+        
+        &:not(:last-child){
+          margin-bottom: 1.2rem;
+        }
+        
+        a{
+          text-decoration: none;
+          color: inherit;
+          
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+        
+      }
+    } // END ul
+  } // END .openMenu
+} // END .mobileMenu
+
+.show{
+  @include flexCenter;
+  flex-direction: column;
+  
+}
